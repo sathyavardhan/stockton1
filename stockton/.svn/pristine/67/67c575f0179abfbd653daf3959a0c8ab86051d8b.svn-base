@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project name="stockton" default="run">
+
+<target name="info">
+<echo> info block executed </echo>
+</target>
+
+<target name="clean" depends="info">
+<echo> clea block executed </echo>
+</target>
+
+<target name="compile" depends="clean">
+<echo> compile block executed </echo>
+<javac srcdir="C:/Users/SATHYA VARDHAN/Desktop/stockton/trunk/java" destdir="./java"/>
+</target>
+
+<target name="jar" depends="compile">
+<echo> jar block executed </echo>
+<mkdir dir="C:/Users/SATHYA VARDHAN/Desktop/stockton/trunk/jar"/>
+<jar destfile="C:/Users/SATHYA VARDHAN/Desktop/stockton/trunk/jar/stockton.jar" basedir="C:/Users/SATHYA VARDHAN/Desktop/stockton/trunk/java">
+<manifest>
+<attribute name="main-class" value="hello"/>
+</manifest>
+</jar>
+</target>
+
+<target name="run" depends="jar">
+<echo> run block executed </echo>
+<java jar="C:/Users/SATHYA VARDHAN/Desktop/stockton/trunk/jar/stockton.jar" fork="true"/>
+</target>
+</project>
